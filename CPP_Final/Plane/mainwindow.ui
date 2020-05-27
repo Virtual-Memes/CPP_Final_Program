@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>飞机大战</string>
+  </property>
+  <widget class="QWidget" name="Center">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <widget class="QFrame" name="Begin">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 153, 155)</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="Start">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>350</y>
+       <width>160</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{color:&quot;white&quot;;
+background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(75, 255, 0, 80), stop:1 rgba(75, 255, 0, 80));
+border:0;
+border-radius:20px;
+}
+QPushButton::pressed{
+background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 0, 80), stop:1 rgba(0, 255, 0, 80));
+};</string>
+     </property>
+     <property name="text">
+      <string>开始游戏</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="Menu">
+    <property name="title">
+     <string>菜单</string>
+    </property>
+    <addaction name="Replay"/>
+    <addaction name="Statistic"/>
+   </widget>
+   <widget class="QMenu" name="Help">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="Member"/>
+    <addaction name="Copyright"/>
+   </widget>
+   <widget class="QMenu" name="OnExit">
+    <property name="title">
+     <string>退出</string>
+    </property>
+    <addaction name="Exit"/>
+   </widget>
+   <addaction name="Menu"/>
+   <addaction name="Help"/>
+   <addaction name="OnExit"/>
+  </widget>
+  <action name="Replay">
+   <property name="text">
+    <string>重新开始</string>
+   </property>
+  </action>
+  <action name="Statistic">
+   <property name="text">
+    <string>统计</string>
+   </property>
+  </action>
+  <action name="Member">
+   <property name="text">
+    <string>制作人员</string>
+   </property>
+  </action>
+  <action name="Copyright">
+   <property name="text">
+    <string>版权声明</string>
+   </property>
+  </action>
+  <action name="Exit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
