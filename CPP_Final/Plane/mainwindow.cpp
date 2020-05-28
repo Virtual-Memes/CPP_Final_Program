@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <windows.h>
 #include <list>
-int MainWindow::score=0;
 list<Bullet*> My_Bullet;
 list<Enermy*> Enermies;
 MainWindow::MainWindow(QWidget *parent)
@@ -13,8 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QObject::connect(ui->Exit,SIGNAL(triggered()),this,SLOT(On_Exit()));
+    QObject::connect(ui->Member,SIGNAL(triggered()),this,SLOT(OpenWeb()));
+    QObject::connect(ui->Copyright,SIGNAL(triggered()),this,SLOT(OpenWeb()));
     setFixedSize(this->width(),this->height());
-
 }
 MainWindow::~MainWindow()
 {
@@ -25,13 +25,13 @@ void MainWindow::On_Exit(){
 }
 void MainWindow::on_Start_released(){
     delete ui->Begin;
-
     CreateGP();
 }
 void MainWindow::CreateGP(){
     GAMEPAGE=new QFrame(ui->Center);
     GAMEPAGE->setGeometry(0,0,800,600);
     GAMEPAGE->setStyleSheet("QFrame{background-color: '#e4e4e4';};");
+    QObject::connect(ui->Replay,SIGNAL(triggered()),this,SLOT(Restart()));
     setEnabled(true);
     setFocusPolicy(Qt::StrongFocus);
     GAMEPAGE->show();
@@ -71,9 +71,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             Plane->setGeometry(P_X,P_Y,P_HEIGHT,P_WIDTH);
         }
     }
-
     if(event->key()==Qt::Key_Right){
-
        if(P_X<=750){
            P_X+=5;
            Plane->setGeometry(P_X,P_Y,P_HEIGHT,P_WIDTH);
@@ -172,4 +170,25 @@ void Enermy::Timer(){
         delete timer;
         delete this;
     }
+}
+void MainWindow::Restart(){
+    for(auto B:My_Bullet){
+        My_Bullet.remove(B);
+        B->Crash();
+    }
+    My_Bullet.clear();
+    for(auto E:Enermies){
+        Enermies.remove(E);
+        E->Crash();
+    }
+    Enermies.clear();
+    score=0;
+    Score->setText("得分："+QString::number(score));
+    Plane->setGeometry(350,400,P_HEIGHT,P_WIDTH);
+    P_X=Plane->x();
+    P_Y=Plane->y();
+}
+void MainWindow::OpenWeb(){
+    Url="https://virtual-memes.gitee.io/about";
+    QDesktopServices::openUrl(QUrl(Url.toLatin1()));
 }

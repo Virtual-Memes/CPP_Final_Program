@@ -8,6 +8,8 @@
 #include <QEvent>
 #include <QTimer>
 #include <QThread>
+#include <QFileInfo>
+#include <QDesktopServices>
 using namespace std;
 #define E_HEIGHT 70
 #define E_WIDTH 70
@@ -30,7 +32,8 @@ public:
     void CreateGP();
     void InitialP();
     void CreateScr();
-    static int score;
+    QString Url;
+    int score=0;
     int P_X;
     int P_Y;
     int Self_BID;
@@ -42,10 +45,11 @@ public:
     QLabel* Score;
     QImage* Normal;
     QImage* Damaged;
-    QKeyEvent* PlaneCtrl;
 signals:
 public slots:
     void On_Exit();
+    void Restart();
+    void OpenWeb();
 private slots:
     void on_Start_released();
 };
