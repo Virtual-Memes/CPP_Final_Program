@@ -21,13 +21,14 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-1</y>
       <width>800</width>
       <height>600</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 153, 155)</string>
+     <string notr="true">background-color:rgb(255,255,255);
+background:url(&quot;:/bg.png&quot;);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -39,7 +40,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>350</y>
+       <y>320</y>
        <width>160</width>
        <height>70</height>
       </rect>

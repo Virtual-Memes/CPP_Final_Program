@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/myplane.png"));
     //连接退出按键至对应的槽函数
     QObject::connect(ui->Exit,SIGNAL(triggered()),this,SLOT(On_Exit()));
     //连接关于内的按键至对应的槽函数
