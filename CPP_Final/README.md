@@ -2,5 +2,5 @@
 
 项目UML类图如下：
 
-![UML](UML.png)
+![UML](https://github.com/Virtual-Memes/CPP_Final_Program/blob/master/CPP_Final/UML.png)
 
